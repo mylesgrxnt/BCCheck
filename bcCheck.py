@@ -8,15 +8,16 @@ from PIL import Image
 import time
 
 def login():
-    driver = webdriver.Chrome('/Users/mylesgrant/Documents/chromedriver')
+    driver = webdriver.Chrome('/Users/mylesgrant/Documents/chromedriver') #Change PATH
     driver.get('https://htmldbprod.bc.edu/prd/f?p=876:LOGIN_DESKTOP:11497860804263:::::')
     driver.maximize_window()
     driver.implicitly_wait(10)
 
     login_button_id = "LOGINSPAN"
 
-    username = ""
-    password = ""
+    #DO NOT SHARE FILE WITH USER AND PASS
+    username = "" #Add Username
+    password = "" #Add Password
 
     user_id_box = driver.find_element(By.ID, "P101_USERNAME")
     user_id_box.send_keys(username)
@@ -47,7 +48,7 @@ def login():
     better_click("//*[@id='P1_CLOSE_CONTACT_10_1']")
     better_click("//*[@id='SUBMIT']/span")
 
-    '''
+    #Code to screenshot on MacBook Air 13.1" ONLY, experiment to change coordinates for screenshots on your device
     auto.moveTo(6,151)
     auto.keyDown("command")
     auto.keyDown("shift")
@@ -62,11 +63,10 @@ def login():
         paths = [os.path.join(path, basename) for basename in files]
         return max(paths, key=os.path.getctime)
 
-    screenshot = newest('/Users/mylesgrant/Documents/screenshots')
+    screenshot = newest('/Users/mylesgrant/Documents/screenshots') #Change PATH
     
     img = Image.open(screenshot)
     img.show()
-    '''
 
     driver.quit()
     #coordinates: (25,225) (698,731)
